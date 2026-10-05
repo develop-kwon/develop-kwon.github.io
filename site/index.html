@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="ko">
+
+<head>
+  <title>권유현 | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* Portfolio: 이미지 링크를 article 전체로 확장 */
+    .features article { position: relative; }
+    .features article a.image { position: static; }
+    .features article a.image::after { content: ""; position: absolute; inset: 0; }
+    /* Portfolio: 마우스 올리면 하이라이트 (색은 템플릿 민트 계열) */
+    /* 템플릿의 위쪽 구분선 여백(padding-top 2.25em)을 빼고 내용 주변에만 상하좌우 1em */
+    .features article { isolation: isolate; }
+    .features article::before {
+      content: ""; position: absolute; z-index: -1;
+      top: calc(1.25em + 3px); right: -1em; bottom: -1em; left: -1em; /* 3px = 구분선 두께 */
+      background: #edf9f5; border-radius: 5px;
+      opacity: 0; transition: opacity 0.2s ease;
+    }
+    .features article:first-child::before { top: -1em; }
+    .features article:hover::before { opacity: 1; }
+    .features article h4 { transition: color 0.2s ease; }
+    .features article:hover h4 { color: #4acaa8; }
+  </style>
+</head>
+
+<body class="is-preload">
+
+  <!-- Header -->
+  <section id="header">
+    <header>
+      <span class="image avatar"><img src="images/avatar.jpeg" alt="" /></span>
+      <h1 id="logo"><a href="#">YuHyun Kwon</a></h1>
+      <p>실생활 속 문제를 찾아<br />
+        서비스로 풀어내는 웹·앱 개발자</p>
+    </header>
+    <nav id="nav">
+      <ul>
+        <li><a href="#one" class="active">Introduction</a></li>
+        <li><a href="#two">SkillSet</a></li>
+        <li><a href="#three">Portfolio</a></li>
+        <li><a href="#four">Awards</a></li>
+        <li><a href="#five">Certification</a></li>
+        <li><a href="#six">Contact</a></li>
+      </ul>
+    </nav>
+    <footer>
+      <ul class="icons">
+        <li><a href="https://github.com/develop-kwon" class="icon brands fa-github"><span
+              class="label">Github</span></a></li>
+        <li><a href="mailto:eric010316@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a>
+        </li>
+      </ul>
+    </footer>
+  </section>
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+
+      <!-- One -->
+      <section id="one">
+        <div class="container">
+          <header class="major">
+            <h2>Introduction</h2>
+            <h3>안녕하세요.<br />
+              저는 웹·앱 개발자 <br />
+              권유현입니다.</h3>
+          </header>
+          <br />
+          <p>실생활 속 문제를 찾아 서비스로 풀어내는 것을 좋아합니다.<br />
+            웹과 앱을 넘나들며 사용자가 만족할 만한 서비스를 제공합니다.<br />
+          </p>
+          <p>한국공학대학교 컴퓨터공학부<br />
+            관심사: Programming, Baseball, Investing, Photography</p>
+          <hr />
+          <h4>Overall Experiences</h4>
+          <header>
+            <h5>GDGoC TUKorea</h5>
+            <p>2025 ~ 2026</p>
+          </header>
+          <p>GDGoC TUKorea 멤버로 활동하고 있습니다. 2026 Dev Sprint에서 방한 외국인 전용 여행 계획 서비스 Koready 프로젝트의 팀장을 맡고 있습니다.</p>
+          <header>
+            <h5>한국게임학회 춘계학술발표대회</h5>
+            <p>2026.05.30</p>
+          </header>
+          <p>논문 발표. 'MobileNetV2-SuperPoint Visual SLAM 파이프라인 구현' 논문은 제1저자로 작성했습니다.</p>
+          <header>
+            <h5>시흥시 CE 공모전</h5>
+            <p>모바일 프로그래밍 · 웹 서비스 프로그래밍</p>
+          </header>
+          <p>모바일 프로그래밍 과목에서 'Mommadang' 프로젝트의 Frontend를, 웹 서비스 프로그래밍 과목에서 'TimeFit' 프로젝트의 팀장을 맡았습니다.</p>
+          <header>
+            <h5>LG Aimers 9기 해커톤</h5>
+            <p>2026.08 ~ 2026.09</p>
+          </header>
+          <p>온라인 해커톤에서 1090팀(명) 중 23위로 본선에 진출했고, 오프라인 해커톤을 34팀 중 24위로 수료했습니다.</p>
+        </div>
+      </section>
+
+      <!-- Two -->
+      <section id="two">
+        <div class="container">
+          <h3>SkillSet</h3>
+          <p>사용하는 언어</p>
+          <ul class="feature-icons">
+            <li class="icon solid fa-code">HTML5</li>
+            <li class="icon solid fa-code">CSS3</li>
+            <li class="icon solid fa-code">JavaScript</li>
+            <li class="icon solid fa-code">TypeScript</li>
+            <li class="icon solid fa-code">Kotlin</li>
+            <li class="icon solid fa-code">Java</li>
+            <li class="icon solid fa-code">Python</li>
+          </ul>
+          <p>프레임워크 및 라이브러리</p>
+          <ul class="feature-icons">
+            <li class="icon solid fa-cubes">React</li>
+            <li class="icon solid fa-cubes">React Native</li>
+            <li class="icon solid fa-cubes">Flutter</li>
+            <li class="icon solid fa-cubes">Spring Boot</li>
+            <li class="icon solid fa-cubes">Node.js</li>
+            <li class="icon solid fa-cubes">PyTorch</li>
+            <li class="icon solid fa-cubes">OpenCV</li>
+          </ul>
+          <p>데이터베이스 및 클라우드</p>
+          <ul class="feature-icons">
+            <li class="icon solid fa-database">PostgreSQL</li>
+            <li class="icon solid fa-cloud">AWS</li>
+            <li class="icon solid fa-cloud">Firebase</li>
+            <li class="icon solid fa-database">Supabase</li>
+          </ul>
+          <p>개발 도구</p>
+          <ul class="feature-icons">
+            <li class="icon solid fa-bolt">VSCode</li>
+            <li class="icon solid fa-bolt">IntelliJ IDEA</li>
+            <li class="icon solid fa-bolt">Android Studio</li>
+            <li class="icon solid fa-bolt">Gradle</li>
+            <li class="icon solid fa-bolt">Claude Code</li>
+            <li class="icon brands fa-github">GitHub</li>
+          </ul>
+          <p>최근 공부하는 것</p>
+          <ul class="feature-icons">
+            <li class="icon solid fa-book">React Native, TypeScript</li>
+            <li class="icon solid fa-book">Spring Boot, PostgreSQL</li>
+            <li class="icon solid fa-book">Python ML</li>
+            <li class="icon solid fa-book">데이터 분석 (Pandas, NumPy)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Three -->
+      <section id="three">
+        <div class="container">
+          <h3>Portfolio</h3>
+          <br/>
+          <div class="features">
+            <article>
+              <a href="https://github.com/GDGoC-TUK-Dev-Sprint" class="image"><img src="images/koready.svg"
+                  alt="" /></a>
+              <div class="inner">
+                <h4>방한 외국인 전용 여행 계획 서비스 Koready</h4>
+                <p>GDGoC Dev Sprint 2026 프로젝트입니다. (팀장)<br />
+                  공공데이터 기반 관광지·이동 데이터로 동선을 설계하고, 국적별 실제 카드소비 통계로 경비를 예측합니다.</p>
+              </div>
+            </article>
+            <article>
+              <a href="https://github.com/WEB-Time-FIT" class="image"><img src="images/timefit.svg" alt="" /></a>
+              <div class="inner">
+                <h4>긴급 구인 서비스 TimeFit</h4>
+                <p>시흥시 CE 공모전 프로젝트입니다. (팀장)<br />
+                  시흥시 일자리 매칭 시스템입니다.</p>
+              </div>
+            </article>
+            <article>
+              <a href="https://github.com/develop-kwon/mommadang" class="image"><img src="images/mommadang.svg"
+                  alt="" /></a>
+              <div class="inner">
+                <h4>시흥 엄마들을 위한 앱 Mommadang</h4>
+                <p>시흥시 CE 공모전 프로젝트입니다. (Frontend)<br />
+                  Kotlin으로 개발한 모바일 앱입니다.</p>
+              </div>
+            </article>
+            <article>
+              <a href="https://github.com/The-VSLab/superpoint-slam" class="image"><img src="images/slam.svg"
+                  alt="" /></a>
+              <div class="inner">
+                <h4>SuperPoint SLAM</h4>
+                <p>The-VSLab 프로젝트입니다.<br />
+                  GPS 신호가 제한되거나 인간의 접근이 불가능한 극한 환경에서도 안정적으로 작동하는 SLAM 시스템을 개발합니다.</p>
+              </div>
+            </article>
+            <article>
+              <a href="https://github.com/develop-kwon/LG-Aimers-9th" class="image"><img src="images/lg-aimers.svg"
+                  alt="" /></a>
+              <div class="inner">
+                <h4>투구 제구 성공 확률 예측 AI</h4>
+                <p>LG Aimers 9기 해커톤 프로젝트입니다. (23위 / 1090위)<br />
+                  투구 직전 정보만으로 제구 성공 확률을 예측합니다.</p>
+              </div>
+            </article>
+          </div>
+
+          <details>
+            <summary style="cursor: pointer; margin-bottom: 1em;"><h4 style="display: inline;">GitHub Projects</h4></summary>
+          <p><a href="https://github.com/develop-kwon">github.com/develop-kwon</a> 공개 저장소 기준 (포크 제외, 최근 푸시 순)</p>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>저장소</th>
+                  <th>설명</th>
+                  <th>주요 언어</th>
+                  <th>최근 푸시</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/LG-Aimers-9th">LG-Aimers-9th</a></td>
+                  <td>LG Aimers 9기</td>
+                  <td>Python</td>
+                  <td>2026.09.09</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/STT-Highlight-Report">STT-Highlight-Report</a></td>
+                  <td>STT 반복표현 하이라이트 리포트</td>
+                  <td>HTML</td>
+                  <td>2026.07.15</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/Crawling">Crawling</a></td>
+                  <td>개인 크롤링 공부 프로젝트</td>
+                  <td>Python</td>
+                  <td>2026.07.04</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/ParkToken">ParkToken</a></td>
+                  <td>QR 코드 기반 이중주차 차량 이동 요청 서비스 (MVP: 아파트 단지 모드)</td>
+                  <td>TypeScript</td>
+                  <td>2026.06.25</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/AI-Secretary">AI-Secretary</a></td>
+                  <td>AI 브리핑 오케스트레이터</td>
+                  <td>TypeScript</td>
+                  <td>2026.06.19</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/Perceptron">Perceptron</a></td>
+                  <td>개인 딥러닝 공부 프로젝트</td>
+                  <td>Jupyter Notebook</td>
+                  <td>2026.04.21</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/TimeFit">TimeFit</a></td>
+                  <td>긴급 구인 서비스</td>
+                  <td>JavaScript</td>
+                  <td>2026.01.31</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/Raw-Socket-Programming">Raw-Socket-Programming</a></td>
+                  <td>패킷 분석 프로그램 구현</td>
+                  <td>C</td>
+                  <td>2025.12.01</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/emotion-diary">emotion-diary</a></td>
+                  <td>개인 React.js 프로젝트</td>
+                  <td>JavaScript</td>
+                  <td>2025.08.30</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/netflix-clone-coding">netflix-clone-coding</a></td>
+                  <td>Netflix UI with Flutter</td>
+                  <td>Dart</td>
+                  <td>2025.07.25</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/flutter-todo">flutter-todo</a></td>
+                  <td>Todo UI</td>
+                  <td>Flutter</td>
+                  <td>2025.06.28</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/mommadang">mommadang</a></td>
+                  <td>시흥 엄마들을 위한 앱</td>
+                  <td>Kotlin</td>
+                  <td>2025.06.28</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/develop-kwon/network-project">network-project</a></td>
+                  <td>TCP 통신을 통한 게임</td>
+                  <td>C</td>
+                  <td>2025.06.28</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </details>
+
+          <details>
+            <summary style="cursor: pointer; margin-bottom: 1em;"><h4 style="display: inline;">GitHub Organizations</h4></summary>
+          <div class="table-wrapper">
+            <table class="alt">
+              <thead>
+                <tr>
+                  <th>조직</th>
+                  <th>저장소</th>
+                  <th>설명</th>
+                  <th>주요 언어</th>
+                  <th>최근 푸시</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://github.com/The-VSLab">The-VSLab</a></td>
+                  <td><a href="https://github.com/The-VSLab/superpoint-slam">superpoint-slam</a></td>
+                  <td>GPS 신호가 제한되거나 인간의 접근이 불가능한 극한 환경에서도 안정적으로 작동하는 SLAM 시스템 개발</td>
+                  <td>Python</td>
+                  <td>2026.08.13</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/WEB-Time-FIT">WEB-Time-FIT</a></td>
+                  <td><a href="https://github.com/WEB-Time-FIT/Frontend">Frontend</a></td>
+                  <td>시흥시 일자리 매칭 시스템 프론트엔드</td>
+                  <td>JavaScript</td>
+                  <td>2025.12.22</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/WEB-Time-FIT">WEB-Time-FIT</a></td>
+                  <td><a href="https://github.com/WEB-Time-FIT/Backend">Backend</a></td>
+                  <td>시흥시 일자리 매칭 시스템 백엔드</td>
+                  <td>Java</td>
+                  <td>2025.12.21</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/GDGoC-TUK-Dev-Sprint">GDGoC-TUK-Dev-Sprint</a></td>
+                  <td><a href="https://github.com/GDGoC-TUK-Dev-Sprint/frontend">frontend</a></td>
+                  <td>Koready 모바일 클라이언트 (React Native 0.87, TypeScript, NativeWind v4)</td>
+                  <td>Kotlin</td>
+                  <td>2026.09.24</td>
+                </tr>
+                <tr>
+                  <td><a href="https://github.com/GDGoC-TUK-Dev-Sprint">GDGoC-TUK-Dev-Sprint</a></td>
+                  <td><a href="https://github.com/GDGoC-TUK-Dev-Sprint/backend">backend</a></td>
+                  <td>Koready 백엔드 API 서버 (Java 21, Spring Boot, PostgreSQL, Redis)</td>
+                  <td>Java</td>
+                  <td>2026.09.24</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Four -->
+      <section id="four">
+        <div class="container">
+          <h3>Awards</h3>
+          <ul class="alt">
+            <li>LG Aimers 9기 온라인 해커톤 23위 / 1090위 · 본선 진출 (2026.08.05 ~ 2026.09.02)</li>
+            <li>LG Aimers 9기 오프라인 해커톤 24위 / 34위 · 수료 (2026.09.19 ~ 2026.09.20)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Five -->
+      <section id="five">
+        <div class="container">
+          <h3>Certification</h3>
+          <ul class="alt">
+            <li>정보처리기사 (2026.09.11) · 한국산업인력공단 · 26202101075Y</li>
+            <li>SQLD (2023.12.15) · 한국데이터산업진흥원장 · SQLD-051012721</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Six -->
+      <section id="six">
+        <div class="container">
+          <h3>Contact Me</h3>
+          <ul class="alt">
+            <li>Email : <a href="mailto:eric010316@gmail.com">eric010316@gmail.com</a></li>
+            <li>Email : <a href="mailto:kyh010316@naver.com">kyh010316@naver.com</a></li>
+            <li>Github : <a href="https://github.com/develop-kwon">https://github.com/develop-kwon</a></li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <section id="footer">
+      <div class="container">
+        <ul class="copyright">
+          <li>&copy; YuHyun Kwon. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
