@@ -161,9 +161,46 @@
       color: #4acaa8;
     }
 
-    /* 본문 폭: 템플릿 45em → 56em (카드가 넓어지도록, 섹션 정렬을 위해 전체에 적용. 1024px 이하는 템플릿대로 100%) */
+    /* 본문 폭: 템플릿 45em → 60em (카드가 넓어지도록, 섹션 정렬을 위해 전체에 적용. 1024px 이하는 템플릿대로 100%) */
     #main > section > .container {
-      width: 56em;
+      width: 60em;
+    }
+
+    /* 사이드바 폭: 데스크톱(1025px 이상)에서만 템플릿보다 3em씩 줄여 본문 공간 확보. 모바일 메뉴 패널은 템플릿 그대로 */
+    @media screen and (min-width: 1025px) {
+      #header { width: 20em; }
+      #wrapper { padding-right: 20em; }
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1680px) {
+      #header { width: 18em; }
+      #wrapper { padding-right: 18em; }
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1280px) {
+      #header { width: 17em; }
+      #wrapper { padding-right: 17em; }
+    }
+
+    /* 접는 제목(Other Projects 등): ▶ 표시가 h3 크기·위치에 맞도록 summary 자체를 h3 크기로 */
+    details:not(.ts) > summary {
+      font-size: 1.75em;
+      font-weight: 700;
+      line-height: 1.5em;
+      color: #777;
+    }
+
+    details:not(.ts) > summary > h3 {
+      font-size: 1em;
+      margin: 0;
+    }
+
+    /* 태블릿(737~1024px): 설명이 길면 이미지가 세로 가운데로 내려가 빈 공간이 생기므로 위쪽에 맞춤 */
+    @media screen and (min-width: 737px) and (max-width: 1024px) {
+      .features article .image {
+        vertical-align: top;
+        margin-top: 0.5em;
+      }
     }
   </style>
 </head>
@@ -184,6 +221,7 @@
         <li><a href="#one" class="active">Introduction</a></li>
         <li><a href="#two">SkillSet</a></li>
         <li><a href="#three">Portfolio</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
         <li><a href="#four">Competitions</a></li>
         <li><a href="#five">Certification</a></li>
         <li><a href="#six">Contact</a></li>
@@ -344,6 +382,48 @@
               </div>
             </article>
             <article>
+              <a href="https://github.com/develop-kwon/STT-Highlight-Report" class="image"><img src="images/stt-highlight.png" alt="" /></a>
+              <div class="inner">
+                <h4>음성 반복 표현 분석 리포트 STT Highlight</h4>
+                <p class="meta">2026.07 · 개인 프로젝트</p>
+                <p>회의·연설 음성을 텍스트로 전사하고, 화자가 반복해 강조한 표현을 빈도 분석해 한눈에 보이는 리포트로 만듭니다.</p>
+                <ul>
+                  <li>리턴제로 STT API 클라이언트 구현 (JWT 인증 → 전사 요청 → 결과 폴링)</li>
+                  <li>불용어를 제외한 단어·2~3단어 구문(n-gram) 빈도 분석, 빈도에 따라 3단계로 하이라이트</li>
+                  <li>요약 지표·빈도 막대·본문 검색·화자 구분을 담은 단일 HTML 리포트 생성, FOMC 기자회견 음성으로 검증</li>
+                </ul>
+                <p class="tech">Python · Requests · n-gram 분석 · HTML/CSS/JS</p>
+              </div>
+            </article>
+            <article>
+              <a href="https://github.com/develop-kwon/ParkToken" class="image"><img src="images/parktoken.png" alt="" /></a>
+              <div class="inner">
+                <h4>QR 기반 이중주차 이동 요청 서비스 ParkToken</h4>
+                <p class="meta">2026.06 · 개인 프로젝트 · 풀스택</p>
+                <p>이중주차로 막힌 운전자가 차량의 QR 스티커를 스캔해 이동 토큰을 받고, 차주 승인 없이도 안전하게 차량을 옮길 수 있는 아파트 단지용 서비스입니다.</p>
+                <ul>
+                  <li>백엔드(Express·PostgreSQL·Redis), 관리자 웹(Next.js), 모바일 앱(React Native·Expo)으로 구성된 모노레포 설계</li>
+                  <li>관리자 웹: 단지 대시보드·입주자 관리·사고 접수·포인트 관리·이동 제한 시간 설정</li>
+                  <li>모바일 앱: QR 스캔 → 이동 토큰 발급, 이동 이력 조회, 백엔드 없이 UI를 개발하는 Mock 모드</li>
+                </ul>
+                <p class="tech">TypeScript · Express · PostgreSQL · Redis · Next.js · React Native · JWT</p>
+              </div>
+            </article>
+            <article>
+              <a href="https://github.com/develop-kwon/AI-Secretary" class="image"><img src="images/ai-secretary.png" alt="" /></a>
+              <div class="inner">
+                <h4>AI 브리핑 오케스트레이터 AI Secretary</h4>
+                <p class="meta">2026.06 · 개인 프로젝트</p>
+                <p>매일 오전 9시 AI/IT 뉴스를 수집·요약하고 구글 캘린더 일정과 합쳐 Gmail로 보내는 멀티 에이전트 파이프라인입니다.</p>
+                <ul>
+                  <li>뉴스 수집 → 분류 → 요약 → HTML 정제 → 캘린더 조회 → 메일 발송의 6단계 에이전트 파이프라인 설계</li>
+                  <li>단계별 난이도에 맞춰 모델을 나누고(수집 gpt-5.5, 분류 gpt-5.4-nano 등), 기사 날짜를 검증해 범위를 벗어나면 최대 3회 재시도</li>
+                  <li>Zapier MCP로 Gmail·Google Calendar를 연동하고 node-cron으로 매일 자동 실행</li>
+                </ul>
+                <p class="tech">TypeScript · OpenAI Agents SDK · Zapier MCP · node-cron</p>
+              </div>
+            </article>
+            <article>
               <a href="https://github.com/WEB-Time-FIT" class="image"><img src="images/timefit.png" alt="" /></a>
               <div class="inner">
                 <h4>긴급 구인 서비스 TimeFit</h4>
@@ -371,67 +451,11 @@
             </article>
           </div>
 
-          <h4>Troubleshooting</h4>
-          <details class="ts">
-            <summary>[SuperPoint SLAM] 디스크립터 헤드 붕괴로 루프 클로저가 불가능했던 문제</summary>
-            <ul class="alt">
-              <li><strong>문제</strong> · 직접 학습한 경량 모델로는 인접 프레임 매칭 inlier가 7%에 그쳐, 진짜 루프와 가짜 루프를 구분할 수 없었습니다.</li>
-              <li><strong>원인</strong> · 학습 중 디스크립터 헤드가 붕괴해 모든 키포인트의 기술자가 사실상 같은 벡터로 수렴했습니다(프레임 내 유사도 p95 0.999).</li>
-              <li><strong>해결</strong> · 백본과 검출 헤드는 동결하고, 디스크립터 헤드(74.6K 파라미터)만 원본 SuperPoint를 teacher로 재증류했습니다(KITTI 이미지 6천 장, 2 epochs, 약 2분).</li>
-              <li><strong>결과</strong> · 인접 프레임 inlier 7% → 89%, 진짜 루프쌍 inlier 7% → 74%로 회복해 루프 클로저를 다시 쓸 수 있게 되었습니다.</li>
-            </ul>
-          </details>
-          <details class="ts">
-            <summary>[SuperPoint SLAM] 루프 클로저의 오탐과 스케일 드리프트</summary>
-            <ul class="alt">
-              <li><strong>문제</strong> · 단안 카메라 SLAM은 이동 거리가 늘수록 스케일이 어긋나고, 비슷하게 생긴 다른 장소를 같은 장소로 잘못 인식하면 지도 전체가 틀어집니다.</li>
-              <li><strong>원인</strong> · 후보 검색에 max-pooling 기술자를 쓰면 값이 포화되어 모든 이미지 쌍의 유사도가 1.0이 되었고, 회전·위치만 보정하는 방식으로는 스케일 오차가 남았습니다.</li>
-              <li><strong>해결</strong> · mean-pooling 기술자를 평균만큼 빼는 centering 후 코사인 유사도로 후보를 찾고, PnP(실패 시 Essential Matrix)로 검증했습니다. 검증 임계값은 KITTI 실측(진짜 루프 92 vs 가짜 9~14 inliers)으로 정하고, 보정은 g2o Sim3(7-DOF) Pose Graph Optimization으로 전환해 스케일까지 교정했습니다.</li>
-              <li><strong>결과</strong> · KITTI 07에서 시작-끝 폐합 오차 38.5m → 25.4m, 루프가 없는 KITTI 08에서는 후보 460개를 전부 기각해 오탐 0건을 기록했습니다.</li>
-            </ul>
-          </details>
-          <details class="ts">
-            <summary>[SuperPoint SLAM] GPU가 오히려 느렸던 특징점 매칭</summary>
-            <ul class="alt">
-              <li><strong>문제</strong> · 실시간성을 위해 매칭을 GPU(Apple MPS)로 돌렸지만 기대만큼 빨라지지 않았습니다.</li>
-              <li><strong>원인</strong> · 매칭에 쓰는 행렬이 작아 GPU 커널을 호출하는 오버헤드가 계산 이득보다 컸고, 실측해 보니 CPU가 MPS보다 6배 빨랐습니다.</li>
-              <li><strong>해결</strong> · CUDA 환경에서만 GPU 매칭을 쓰도록 매처 디바이스를 분기하고, 필터와 시각화 렌더링을 최적화했습니다. 입력 자동 축소(640px)는 속도 이득 없이 정확도만 떨어뜨려(ATE +41%) 원본 해상도를 쓰도록 했습니다.</li>
-              <li><strong>결과</strong> · 프레임당 약 15ms를 단축했습니다.</li>
-            </ul>
-          </details>
-          <details class="ts">
-            <summary>[LG Aimers] 랜덤 검증으로는 잡히지 않던 시즌 과적합</summary>
-            <ul class="alt">
-              <li><strong>문제</strong> · CatBoost를 랜덤 홀드아웃 조기 종료로 약 2,000그루까지 학습시키자, 시간 분할 검증 점수가 오히려 501 → 454로 떨어졌습니다.</li>
-              <li><strong>원인</strong> · 과거 시즌으로 학습해 다음 시즌을 맞혀야 하는 문제라 과적합이 '시즌' 단위로 일어났고, 같은 시즌 안에서 무작위로 뗀 검증셋은 이를 잡지 못했습니다.</li>
-              <li><strong>해결</strong> · 2019~2023년으로 학습하고 2024년으로 검증하는 시간 기준 용량 스윕으로 적정 트리 수를 찾고, 이후에는 시간 분할 조기 종료의 평균 반복 수로 학습 횟수를 고정했습니다. 평가지표가 MSE 기반이라 분류 모델을 회귀(RMSE) 모델로 바꿔 지표를 직접 최적화했습니다.</li>
-              <li><strong>결과</strong> · 약 280그루에서 정점을 찾아 시간 분할 점수 706.22를 확보했고, 회귀 전환으로 +8.28을 더해 이후 Public 1014.37 → 1035.07까지 개선했습니다.</li>
-            </ul>
-          </details>
-          <details class="ts">
-            <summary>[LG Aimers] 트랙맨 피처를 넣었더니 리더보드 점수가 떨어진 문제</summary>
-            <ul class="alt">
-              <li><strong>문제</strong> · 제가 만든 트랙맨 피처를 팀의 3-모델 스태킹에 넣은 실험(exp65)이 검증에서는 기존 최고보다 +8.94 높았지만, 리더보드에서는 오히려 낮았습니다(992.10 < 1002.97).</li>
-              <li><strong>원인</strong> · 퓨처스(F) 리그 데이터는 시즌마다 분포가 크게 흔들려, 여러 시즌을 누적한 피처가 불안정했습니다. 또 최근 시즌 가중치를 정규화 없이 주면 1군(R) 데이터 성능이 -17.5 떨어지는 버그도 확인했습니다.</li>
-              <li><strong>해결</strong> · 퓨처스 데이터에만 최근 시즌 가중치를 주고 퓨처스 내부에서 평균 1로 정규화했습니다. 대회 규정에 맞춰 직전 한 시즌만 쓰고 10월 데이터에는 적용하지 않는 버전도 따로 만들었습니다.</li>
-              <li><strong>결과</strong> · 5개 시드 검증에서 퓨처스 +42.2, 1군 +2.7로 두 데이터 모두 개선되었습니다.</li>
-            </ul>
-          </details>
-          <details class="ts">
-            <summary>[TimeFit] 프론트엔드와 백엔드 연동 시 회원가입이 동작하지 않던 문제</summary>
-            <ul class="alt">
-              <li><strong>문제</strong> · 프론트엔드와 백엔드를 연결하자 회원가입 요청이 정상적으로 처리되지 않았습니다.</li>
-              <li><strong>원인</strong> · 프론트엔드가 보내는 회원가입 정보(이름 또는 회사명, 연락처, 주소)를 백엔드 요청 형식이 받지 못했고, 서버에 CORS 설정이 없어 다른 출처에서 오는 브라우저 요청이 막혔습니다.</li>
-              <li><strong>해결</strong> · 백엔드 회원가입 요청·사용자 모델에 필드를 추가하고, 구직자 이름과 채용자 회사명 중 있는 값을 쓰도록 했습니다. Spring Security에 CORS 설정을 추가하고, 가입 직후 JWT를 발급해 바로 로그인되도록 했습니다.</li>
-              <li><strong>결과</strong> · 구직자·채용자 모두 회원가입부터 로그인까지 프론트엔드와 백엔드가 연결되었습니다.</li>
-            </ul>
-          </details>
-
-          <!-- <details>
+          <details>
             <summary style="cursor: pointer; margin-bottom: 1em;">
-              <h4 style="display: inline;">GitHub Projects</h4> 
+              <h3 style="display: inline;">Other Projects</h3>
             </summary>
-            <p><a href="https://github.com/develop-kwon">github.com/develop-kwon</a> 공개 저장소 기준 (포크 제외, 최근 푸시 순)</p>
+            <p>공부·연습용 개인 저장소 (<a href="https://github.com/develop-kwon">github.com/develop-kwon</a>)</p>
             <div class="table-wrapper">
               <table>
                 <thead>
@@ -444,87 +468,51 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a href="https://github.com/develop-kwon/LG-Aimers-9th">LG-Aimers-9th</a></td>
-                    <td>투구 제구 성공 확률 예측 AI (LG Aimers 9기)</td>
-                    <td>Python</td>
-                    <td>2026.09.09</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/develop-kwon/STT-Highlight-Report">STT-Highlight-Report</a></td>
-                    <td>STT 반복표현 하이라이트 리포트</td>
-                    <td>HTML</td>
-                    <td>2026.07.15</td>
-                  </tr>
-                  <tr>
                     <td><a href="https://github.com/develop-kwon/Crawling">Crawling</a></td>
-                    <td>개인 크롤링 공부 프로젝트</td>
+                    <td>개인 크롤링 공부 프로젝트 — G마켓 베스트 상품 수집·CSV 저장</td>
                     <td>Python</td>
-                    <td>2026.07.04</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/develop-kwon/ParkToken">ParkToken</a></td>
-                    <td>QR 코드 기반 이중주차 차량 이동 요청 서비스 (MVP: 아파트 단지 모드)</td>
-                    <td>TypeScript</td>
-                    <td>2026.06.25</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/develop-kwon/AI-Secretary">AI-Secretary</a></td>
-                    <td>AI 브리핑 오케스트레이터</td>
-                    <td>TypeScript</td>
-                    <td>2026.06.19</td>
+                    <td>2026.07</td>
                   </tr>
                   <tr>
                     <td><a href="https://github.com/develop-kwon/Perceptron">Perceptron</a></td>
                     <td>개인 딥러닝 공부 프로젝트</td>
                     <td>Jupyter Notebook</td>
-                    <td>2026.04.21</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/develop-kwon/TimeFit">TimeFit</a></td>
-                    <td>긴급 구인 서비스</td>
-                    <td>JavaScript</td>
-                    <td>2026.01.31</td>
+                    <td>2026.04</td>
                   </tr>
                   <tr>
                     <td><a href="https://github.com/develop-kwon/Raw-Socket-Programming">Raw-Socket-Programming</a></td>
                     <td>패킷 분석 프로그램 구현</td>
                     <td>C</td>
-                    <td>2025.12.01</td>
+                    <td>2025.12</td>
                   </tr>
                   <tr>
                     <td><a href="https://github.com/develop-kwon/emotion-diary">emotion-diary</a></td>
-                    <td>개인 React.js 프로젝트</td>
+                    <td>개인 React.js 프로젝트 — 감정 일기</td>
                     <td>JavaScript</td>
-                    <td>2025.08.30</td>
+                    <td>2025.08</td>
                   </tr>
                   <tr>
                     <td><a href="https://github.com/develop-kwon/netflix-clone-coding">netflix-clone-coding</a></td>
                     <td>Netflix UI with Flutter</td>
                     <td>Dart</td>
-                    <td>2025.07.25</td>
+                    <td>2025.07</td>
                   </tr>
                   <tr>
                     <td><a href="https://github.com/develop-kwon/flutter-todo">flutter-todo</a></td>
                     <td>Todo UI</td>
                     <td>Flutter</td>
-                    <td>2025.06.28</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/develop-kwon/mommadang">mommadang</a></td>
-                    <td>시흥 엄마들을 위한 앱</td>
-                    <td>Kotlin</td>
-                    <td>2025.06.28</td>
+                    <td>2025.06</td>
                   </tr>
                   <tr>
                     <td><a href="https://github.com/develop-kwon/network-project">network-project</a></td>
                     <td>TCP 통신을 통한 게임</td>
                     <td>C</td>
-                    <td>2025.06.28</td>
+                    <td>2025.06</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </details> -->
+          </details>
 
           <!-- <details>
             <summary style="cursor: pointer; margin-bottom: 1em;">
@@ -581,6 +569,93 @@
               </table>
             </div>
           </details> -->
+        </div>
+      </section>
+
+      <!-- Troubleshooting -->
+      <section id="troubleshooting">
+        <div class="container">
+          <h3>Troubleshooting</h3>
+          <details class="ts">
+            <summary>[SuperPoint SLAM] 디스크립터 헤드 붕괴로 루프 클로저가 불가능했던 문제</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · 직접 학습한 경량 모델로는 인접 프레임 매칭 inlier가 7%에 그쳐, 진짜 루프와 가짜 루프를 구분할 수 없었습니다.</li>
+              <li><strong>원인</strong> · 학습 중 디스크립터 헤드가 붕괴해 모든 키포인트의 기술자가 사실상 같은 벡터로 수렴했습니다(프레임 내 유사도 p95 0.999).</li>
+              <li><strong>해결</strong> · 백본과 검출 헤드는 동결하고, 디스크립터 헤드(74.6K 파라미터)만 원본 SuperPoint를 teacher로 재증류했습니다(KITTI 이미지 6천 장, 2 epochs, 약 2분).</li>
+              <li><strong>결과</strong> · 인접 프레임 inlier 7% → 89%, 진짜 루프쌍 inlier 7% → 74%로 회복해 루프 클로저를 다시 쓸 수 있게 되었습니다.</li>
+            </ul>
+          </details>
+          <details class="ts">
+            <summary>[SuperPoint SLAM] 루프 클로저의 오탐과 스케일 드리프트</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · 단안 카메라 SLAM은 이동 거리가 늘수록 스케일이 어긋나고, 비슷하게 생긴 다른 장소를 같은 장소로 잘못 인식하면 지도 전체가 틀어집니다.</li>
+              <li><strong>원인</strong> · 후보 검색에 max-pooling 기술자를 쓰면 값이 포화되어 모든 이미지 쌍의 유사도가 1.0이 되었고, 회전·위치만 보정하는 방식으로는 스케일 오차가 남았습니다.</li>
+              <li><strong>해결</strong> · mean-pooling 기술자를 평균만큼 빼는 centering 후 코사인 유사도로 후보를 찾고, PnP(실패 시 Essential Matrix)로 검증했습니다. 검증 임계값은 KITTI 실측(진짜 루프 92 vs 가짜 9~14 inliers)으로 정하고, 보정은 g2o Sim3(7-DOF) Pose Graph Optimization으로 전환해 스케일까지 교정했습니다.</li>
+              <li><strong>결과</strong> · KITTI 07에서 시작-끝 폐합 오차 38.5m → 25.4m, 루프가 없는 KITTI 08에서는 후보 460개를 전부 기각해 오탐 0건을 기록했습니다.</li>
+            </ul>
+          </details>
+          <details class="ts">
+            <summary>[SuperPoint SLAM] GPU가 오히려 느렸던 특징점 매칭</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · 실시간성을 위해 매칭을 GPU(Apple MPS)로 돌렸지만 기대만큼 빨라지지 않았습니다.</li>
+              <li><strong>원인</strong> · 매칭에 쓰는 행렬이 작아 GPU 커널을 호출하는 오버헤드가 계산 이득보다 컸고, 실측해 보니 CPU가 MPS보다 6배 빨랐습니다.</li>
+              <li><strong>해결</strong> · CUDA 환경에서만 GPU 매칭을 쓰도록 매처 디바이스를 분기하고, 필터와 시각화 렌더링을 최적화했습니다. 입력 자동 축소(640px)는 속도 이득 없이 정확도만 떨어뜨려(ATE +41%) 원본 해상도를 쓰도록 했습니다.</li>
+              <li><strong>결과</strong> · 프레임당 약 15ms를 단축했습니다.</li>
+            </ul>
+          </details>
+          <details class="ts">
+            <summary>[SuperPoint SLAM] 일반 영상과 다른 가중치 파일에서 SLAM이 동작하지 않던 문제</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · 입력 해상도가 640×480, 초점거리가 블랙박스 화각으로 고정되어 있어 다른 영상에서는 맞지 않았고, 다른 방식으로 저장된 가중치 파일은 로드되지 않았습니다.</li>
+              <li><strong>원인</strong> · SuperPoint는 입력 가로·세로가 8의 배수여야 하는데 원본 해상도와 비율을 고려하지 않았고, 가중치 로더가 state_dict로 감싼 체크포인트와 멀티 GPU 학습의 module. 접두사를 처리하지 못했습니다.</li>
+              <li><strong>해결</strong> · 영상의 실제 해상도를 읽어 비율을 유지한 채 8의 배수로 맞추고, 초점거리를 화면 크기에서 추정하도록 바꿨습니다. 두 가지 체크포인트 형식을 모두 읽도록 로더를 고쳤습니다.</li>
+              <li><strong>결과</strong> · 블랙박스 영상에 한정되지 않고 일반 MP4 영상과 다양한 형식의 가중치로 SLAM을 실행할 수 있게 되었습니다.</li>
+            </ul>
+          </details>
+          <details class="ts">
+            <summary>[LG Aimers] 랜덤 검증으로는 잡히지 않던 시즌 과적합</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · CatBoost를 랜덤 홀드아웃 조기 종료로 약 2,000그루까지 학습시키자, 시간 분할 검증 점수가 오히려 501 → 454로 떨어졌습니다.</li>
+              <li><strong>원인</strong> · 과거 시즌으로 학습해 다음 시즌을 맞혀야 하는 문제라 과적합이 '시즌' 단위로 일어났고, 같은 시즌 안에서 무작위로 뗀 검증셋은 이를 잡지 못했습니다.</li>
+              <li><strong>해결</strong> · 2019~2023년으로 학습하고 2024년으로 검증하는 시간 기준 용량 스윕으로 적정 트리 수를 찾고, 이후에는 시간 분할 조기 종료의 평균 반복 수로 학습 횟수를 고정했습니다. 평가지표가 MSE 기반이라 분류 모델을 회귀(RMSE) 모델로 바꿔 지표를 직접 최적화했습니다.</li>
+              <li><strong>결과</strong> · 약 280그루에서 정점을 찾아 시간 분할 점수 706.22를 확보했고, 회귀 전환으로 +8.28을 더해 이후 Public 1014.37 → 1035.07까지 개선했습니다.</li>
+            </ul>
+          </details>
+          <details class="ts">
+            <summary>[LG Aimers] 트랙맨 피처를 넣었더니 리더보드 점수가 떨어진 문제</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · 제가 만든 트랙맨 피처를 팀의 3-모델 스태킹에 넣은 실험(exp65)이 검증에서는 기존 최고보다 +8.94 높았지만, 리더보드에서는 오히려 낮았습니다(992.10 < 1002.97).</li>
+              <li><strong>원인</strong> · 퓨처스(F) 리그 데이터는 시즌마다 분포가 크게 흔들려, 여러 시즌을 누적한 피처가 불안정했습니다. 또 최근 시즌 가중치를 정규화 없이 주면 1군(R) 데이터 성능이 -17.5 떨어지는 버그도 확인했습니다.</li>
+              <li><strong>해결</strong> · 퓨처스 데이터에만 최근 시즌 가중치를 주고 퓨처스 내부에서 평균 1로 정규화했습니다. 대회 규정에 맞춰 직전 한 시즌만 쓰고 10월 데이터에는 적용하지 않는 버전도 따로 만들었습니다.</li>
+              <li><strong>결과</strong> · 5개 시드 검증에서 퓨처스 +42.2, 1군 +2.7로 두 데이터 모두 개선되었습니다.</li>
+            </ul>
+          </details>
+          <details class="ts">
+            <summary>[LG Aimers] 팀 아이디어를 이식했다가 점수가 떨어져 롤백한 경험</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · 팀원의 구종 혼합 구조(exp168)를 제 TabM 모델에 이식하고 전체 데이터로 재학습해 제출했는데, 기존 최고 기록(1093.70)보다 22.96 낮은 1070.74가 나왔습니다.</li>
+              <li><strong>원인</strong> · 배포용으로 재학습한 모델을 별도 검증셋으로 다시 확인하지 않았고, 스태킹 계수와 보정값(intercept)을 검증 없이 재사용한 것을 원인으로 판단했습니다.</li>
+              <li><strong>해결</strong> · 이전 최고 모델(exp180)로 즉시 롤백하고, 원인을 팀 실험 원장에 기록했으며 최종 모델 설명 문서를 작성했습니다.</li>
+              <li><strong>결과</strong> · 최고 기록을 유지했고, 재학습한 배포 모델과 재사용한 계수는 반드시 다시 검증해야 한다는 교훈을 팀 원장과 저장소 문서에 남겼습니다.</li>
+            </ul>
+          </details>
+          <details class="ts">
+            <summary>[LG Aimers] 작은 성능 향상이 진짜인지 순열검정으로 확인</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · 세 번째 모델(NODE)을 스태킹에 추가하자 +2.49가 나왔지만, 모델 간 상관이 높아(0.935~0.957) 다중공선성으로 인한 착시일 가능성이 있었습니다.</li>
+              <li><strong>해결</strong> · NODE 예측을 무작위로 섞은 뒤 같은 20-fold 비교를 5번 반복하는 순열검정을 설계했습니다.</li>
+              <li><strong>결과</strong> · 순열 결과는 노이즈 범위(-1.67 ~ +1.96, 평균 -0.65)에 흩어진 반면 실제 NODE는 20번 중 20번 모두 우세해, 향상이 우연이 아님을 확인했습니다.</li>
+            </ul>
+          </details>
+          <details class="ts">
+            <summary>[TimeFit] 프론트엔드와 백엔드 연동 시 회원가입이 동작하지 않던 문제</summary>
+            <ul class="alt">
+              <li><strong>문제</strong> · 프론트엔드와 백엔드를 연결하자 회원가입 요청이 정상적으로 처리되지 않았습니다.</li>
+              <li><strong>원인</strong> · 프론트엔드가 보내는 회원가입 정보(이름 또는 회사명, 연락처, 주소)를 백엔드 요청 형식이 받지 못했고, 서버에 CORS 설정이 없어 다른 출처에서 오는 브라우저 요청이 막혔습니다.</li>
+              <li><strong>해결</strong> · 백엔드 회원가입 요청·사용자 모델에 필드를 추가하고, 구직자 이름과 채용자 회사명 중 있는 값을 쓰도록 했습니다. Spring Security에 CORS 설정을 추가하고, 가입 직후 JWT를 발급해 바로 로그인되도록 했습니다.</li>
+              <li><strong>결과</strong> · 구직자·채용자 모두 회원가입부터 로그인까지 프론트엔드와 백엔드가 연결되었습니다.</li>
+            </ul>
+          </details>
         </div>
       </section>
 
