@@ -134,6 +134,12 @@
         font-size: 12pt;
       }
     }
+
+    /* 모바일 메뉴가 열렸을 때: 버튼이 민트 사이드바와 섞이지 않게 상단 바 색 + 닫기(X) 아이콘 */
+    body.header-visible #titleBar .toggle:before {
+      background: #222222;
+      content: '\f00d';
+    }
   </style>
 </head>
 
