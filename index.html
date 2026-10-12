@@ -202,6 +202,54 @@
         margin-top: 0.5em;
       }
     }
+
+    /* 데스크톱 사이드바: 메뉴 7개 + 아이콘이 어떤 화면 높이에서도 한 화면에 들어가도록,
+       사진·여백·메뉴 간격을 화면 높이(vh)에 비례해 자동 조정 (최소~최대값 사이) */
+    @media screen and (min-width: 1025px) {
+      #header > header { padding: clamp(0.75em, 3.2vh, 3em) 2em clamp(0.5em, 2.4vh, 2.25em) 2em; }
+      #header > header .avatar { width: clamp(3.5em, 18vh, 10em); margin-bottom: clamp(0.5em, 1.6vh, 1.5em); }
+      #header > header p { margin-top: clamp(0.4em, 1vh, 1em); }
+      #header > nav ul li a { padding: clamp(0.25em, 0.95vh, 0.75em) 0; }
+      #header > footer { padding: clamp(0.4em, 1.4vh, 1.25em); }
+    }
+
+    /* 템플릿은 메뉴가 남는 세로 공간을 모두 차지해 아이콘이 맨 아래로 밀려 Contact와 사이가 벌어짐.
+       메뉴는 내용 높이만 쓰고, 남는 공간은 사이드바 위·아래에 나눠 내용 전체를 세로 가운데 정렬 */
+    @media screen and (min-width: 1025px) {
+      #header > nav { flex-grow: 0; }
+      #header > header { margin-top: auto; }
+      #header > footer { margin-bottom: auto; margin-top: clamp(0.5em, 2.2vh, 2em); }
+    }
+
+    /* 글자가 큰 넓은 화면(1681px 이상)인데 세로가 짧으면 사이드바 글자를 노트북 크기로 */
+    @media screen and (min-width: 1681px) and (max-height: 760px) {
+      #header { font-size: 0.82em; }
+    }
+
+    /* 세로가 충분한 화면(900px 이상)은 남는 공간을 사진·간격에 더 배분 */
+    @media screen and (min-width: 1025px) and (min-height: 900px) {
+      #header > header { padding-top: clamp(0.75em, 4vh, 3em); padding-bottom: clamp(0.5em, 3vh, 2.25em); }
+      #header > header .avatar { width: clamp(3.5em, 19vh, 10em); }
+      #header > nav ul li a { padding: clamp(0.25em, 1.25vh, 0.75em) 0; }
+    }
+
+    /* 글자가 큰 넓은 화면(1681px 이상)은 같은 높이에서 글자가 차지하는 공간이 커서 사진 비율을 낮춤 */
+    @media screen and (min-width: 1681px) {
+      #header > header .avatar { width: clamp(3.5em, 10vh, 10em); }
+    }
+
+    @media screen and (min-width: 1681px) and (min-height: 900px) {
+      #header > header .avatar { width: clamp(3.5em, 12.5vh, 10em); }
+    }
+
+    /* 세로가 아주 짧은 창(760px 이하)은 사진 비율을 낮춰 사이드바가 넘치지 않게 */
+    @media screen and (min-width: 1025px) and (max-height: 760px) {
+      #header > header .avatar { width: clamp(3.5em, 12vh, 8em); }
+    }
+
+    @media screen and (min-width: 1681px) and (max-height: 760px) {
+      #header > header .avatar { width: clamp(3.5em, 6vh, 8em); }
+    }
   </style>
 </head>
 
